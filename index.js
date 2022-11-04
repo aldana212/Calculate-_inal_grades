@@ -8,31 +8,21 @@ const finalNote = document.querySelector(".txt-finalNote")
 
 const Send = document.querySelector(".btn-enviar")
 
-// console.log(inputName, firstNote, secondNote, thirdNote, finalNote);
-
-
 Send.addEventListener("click", calculate)
-inputName.addEventListener("keyup", calculate)
-firstNote.addEventListener("keyup", calculate)
-secondNote.addEventListener("keyup", calculate)
-thirdNote.addEventListener("keyup", calculate)
-
-// console.log(inputName.value, firstNote.value, secondNote.value, thirdNote.value);
 
 
-function calculate(events){
-    if (events.code === "Enter" || events.pointerId === 1) { 
-        // if(firstNote.value <= ""){
-        //     console.log("hola...");
-        // }
-         const resultFirst = parseFloat(firstNote.value* 30) / 100; 
-         console.log(resultFirst);
-         const resultSecond =  parseFloat(secondNote.value*30) / 100; 
-         const resultThird = parseFloat(thirdNote.value*40) / 100;
-         const result = (resultFirst + resultSecond + resultThird);
-         console.log("resultado de notas" + result.toFixed(2));
-        validateResul(result.toFixed(1))
-    }
+
+function calculate(){
+        if(firstNote.value <= 5 && firstNote.value >= 1 && secondNote.value <= 5 && secondNote.value >= 1 && thirdNote.value <= 5 && thirdNote.value >= 1){
+            const resultFirst = parseFloat(firstNote.value* 30) / 100; 
+            console.log(resultFirst);
+            const resultSecond =  parseFloat(secondNote.value*30) / 100; 
+            const resultThird = parseFloat(thirdNote.value*40) / 100;
+            const result = (resultFirst + resultSecond + resultThird);
+            validateResul(result.toFixed(2))
+        }else{
+            console.log("error");
+        }
 }
 
 function validateResul(result){
